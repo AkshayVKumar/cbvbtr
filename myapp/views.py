@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,ListView
 from myapp.forms import *
+from myapp.models import School,Student
 #Basic View
 # Create your views here.
 def sample(request):
@@ -35,3 +36,15 @@ class Sample2View(View):
 
 class Template_View(TemplateView):
     template_name="sample.html"
+
+
+class Template_DemoView(TemplateView):
+    template_name="sample2.html"
+
+class School_ListView(ListView):
+    model=School
+    template_name="school_list.html"
+    context_object_name="schools"
+
+class Student_ListView(ListView):
+    model=Student

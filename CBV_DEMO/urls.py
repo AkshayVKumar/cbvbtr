@@ -23,5 +23,8 @@ urlpatterns = [
     path('samplecbv/',views.SampleView.as_view(),name="sampleCBV"),
     path('sample1cbv/',views.Sample1View.as_view(),name="sample1CBV"),
     path('sample2cbv/',views.Sample2View.as_view(),name="sample2CBV"),
-    path('templatecbv/',views.Template_View.as_view(),name="TemplateCBV")
-]
+    path('templatecbv/',views.Template_View.as_view(),name="TemplateCBV"),
+    path('templatecbv1/',views.Template_DemoView.as_view(),name="TemplateCBV1"),
+    path('schools/',views.School_ListView.as_view(),name="school_list"),
+    path('students/',views.Student_ListView.as_view(),name="Student_list"),
+ ]
