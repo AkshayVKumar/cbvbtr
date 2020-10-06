@@ -9,7 +9,7 @@
     <h1>List Of Schools</h1>
     <ol>
     {% for school in schools %}
-      <li>{{school.name}}</li>
+      <li><a href="{% url 'detail_view' pk=school.id %}">{{school.name}}</a></li>
     {% endfor %}
     </ol>
     

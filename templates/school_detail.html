@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail View</title>
+</head>
+<body>
+    {% if school_detail %}
+    <h2>School Name is : {{school_detail.name}}</h2>
+    <h2>School Principal is : {{school_detail.principal}}</h2>
+     <h2>School Location : {{school_detail.location}}</h2> 
+    {% endif %}
+    <br>
+    <h1>Stduents Details of {{school_detail.name}}</h1>
+    <ol>
+        {% for student in school_detail.students.all %}
+        <li>{{student.name}}</li>      
+    {% endfor %}
+    </ol>
+</body>
+</html>

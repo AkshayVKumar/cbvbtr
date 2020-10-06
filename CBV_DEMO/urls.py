@@ -27,4 +27,10 @@ urlpatterns = [
     path('templatecbv1/',views.Template_DemoView.as_view(),name="TemplateCBV1"),
     path('schools/',views.School_ListView.as_view(),name="school_list"),
     path('students/',views.Student_ListView.as_view(),name="Student_list"),
+    path('school/<int:pk>',views.School_DetailView.as_view(),name="detail_view"),
+    path('school/create/',views.Create_School.as_view(),name="create_School"),
+    path('school/update/<int:pk>',views.Update_School.as_view(),name="update_school"),
+    path('school/delete/<int:pk>',views.Delete_School.as_view(),name="delete_school"),
+      
+
  ]

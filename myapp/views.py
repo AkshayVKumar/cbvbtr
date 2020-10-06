@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-from django.views.generic import TemplateView,ListView
+from django.views.generic import DeleteView,TemplateView,ListView,UpdateView,DetailView,CreateView
 from myapp.forms import *
 from myapp.models import School,Student
+from django.urls import reverse,reverse_lazy
 #Basic View
 # Create your views here.
 def sample(request):
@@ -48,3 +49,30 @@ class School_ListView(ListView):
 
 class Student_ListView(ListView):
     model=Student
+
+class School_DetailView(DetailView):
+    model=School
+    template_name='school_detail.html'
+    context_object_name="school_detail"
+
+    def get_absolute_url(self):
+        return reverse("detail_view", kwargs={"pk": self.pk})
+
+
+class Create_School(CreateView):
+    model=School
+    template_name="school_form.html"
+    fields=('name','principal','location')
+
+class Update_School(UpdateView):
+    model=School
+    template_name="school_form.html"
+    fields=('name','principal','location')
+
+class Delete_School(DeleteView):
+    model=School
+    template_name="delete_school.html"
+    success_url=reverse_lazy('school_list')
+    
+
+
