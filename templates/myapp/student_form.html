@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create/Update View</title>
+</head>
+<body>
+    {% if form.instance.pk %}
+      <h2>Update Student Information..</h2>
+    {% else %}
+    <h2>Create The Student Below...</h2>
+    {% endif %}   
+
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        {% if form.instance.pk %}
+        <input type="submit" value="Update">
+        {% else %}
+        <input type="submit" value="Create">
+        {% endif %}
+
+    </form>
+</body>
+</html>
